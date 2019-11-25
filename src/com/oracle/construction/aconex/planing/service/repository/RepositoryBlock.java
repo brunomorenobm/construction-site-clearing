@@ -3,10 +3,10 @@ package com.oracle.construction.aconex.planing.service.repository;
 import com.oracle.construction.aconex.planing.exception.repository.ErrorReadingMapFileException;
 import com.oracle.construction.aconex.planing.exception.repository.FileNotFoundException;
 import com.oracle.construction.aconex.planing.service.infra.FileRead;
-import com.oracle.construction.aconex.planing.model.simulation.map.Coordinate;
-import com.oracle.construction.aconex.planing.model.simulation.map.block.Block;
-import com.oracle.construction.aconex.planing.model.simulation.map.block.BlockFactory;
-import com.oracle.construction.aconex.planing.model.simulation.map.block.BlockType;
+import com.oracle.construction.aconex.planing.domain.simulation.map.Coordinate;
+import com.oracle.construction.aconex.planing.domain.simulation.map.block.Block;
+import com.oracle.construction.aconex.planing.domain.simulation.map.block.BlockFactory;
+import com.oracle.construction.aconex.planing.domain.simulation.map.block.BlockType;
 
 import java.io.File;
 import java.io.IOException;

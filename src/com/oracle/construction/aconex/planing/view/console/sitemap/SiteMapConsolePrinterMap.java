@@ -1,8 +1,8 @@
 package com.oracle.construction.aconex.planing.view.console.sitemap;
 
-import com.oracle.construction.aconex.planing.model.simulation.map.Coordinate;
-import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
-import com.oracle.construction.aconex.planing.model.simulation.map.block.Block;
+import com.oracle.construction.aconex.planing.domain.simulation.map.Coordinate;
+import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMap;
+import com.oracle.construction.aconex.planing.domain.simulation.map.block.Block;
 
 import java.io.PrintStream;
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.oracle.construction.aconex.planing.view.console.sitemap;
 
-import com.oracle.construction.aconex.planing.model.billing.BillItem;
-import com.oracle.construction.aconex.planing.model.billing.Item;
-import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
+import com.oracle.construction.aconex.planing.domain.billing.BillItem;
+import com.oracle.construction.aconex.planing.domain.billing.Item;
+import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMap;
 
 import java.io.PrintStream;
 import java.util.List;

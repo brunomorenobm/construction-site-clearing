@@ -1,8 +1,7 @@
 package com.oracle.construction.aconex.planing.view.console;
 
 
-import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
-import com.oracle.construction.aconex.planing.view.console.sitemap.SiteMapConsolePrinterCommands;
+import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMap;
 import com.oracle.construction.aconex.planing.view.console.sitemap.SiteMapConsolePrinterMap;
 
 public class ScreenWelcome implements Screen {

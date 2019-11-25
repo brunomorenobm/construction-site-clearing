@@ -1,7 +1,7 @@
 package com.oracle.construction.aconex.planing.exception.command;
 
 import com.oracle.construction.aconex.planing.exception.SimulationException;
-import com.oracle.construction.aconex.planing.model.simulation.command.Command;
+import com.oracle.construction.aconex.planing.domain.simulation.command.Command;
 
 public class InvalidCommandException extends SimulationException {
 

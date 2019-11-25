@@ -1,12 +1,12 @@
 package com.oracle.construction.aconex.planing;
 
-import com.oracle.construction.aconex.planing.model.simulation.command.action.*;
-import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
-import com.oracle.construction.aconex.planing.model.simulation.map.SiteMapConstruction;
-import com.oracle.construction.aconex.planing.model.simulation.map.block.Block;
-import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidation;
-import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidationBlockedCleaneableTrees;
-import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidationUnbalanced;
+import com.oracle.construction.aconex.planing.domain.simulation.command.action.*;
+import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMap;
+import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMapConstruction;
+import com.oracle.construction.aconex.planing.domain.simulation.map.block.Block;
+import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidation;
+import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidationBlockedCleaneableTrees;
+import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidationUnbalanced;
 import com.oracle.construction.aconex.planing.service.repository.Repository;
 import com.oracle.construction.aconex.planing.service.repository.RepositoryBlock;
 import com.oracle.construction.aconex.planing.view.console.Screen;
