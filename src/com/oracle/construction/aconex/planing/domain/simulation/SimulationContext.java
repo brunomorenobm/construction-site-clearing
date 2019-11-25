@@ -1,7 +1,8 @@
-package com.oracle.construction.aconex.planing.domain;
+package com.oracle.construction.aconex.planing.domain.simulation;
 
 import com.oracle.construction.aconex.planing.domain.billing.Bill;
 import com.oracle.construction.aconex.planing.domain.billing.BillSiteMap;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
 import com.oracle.construction.aconex.planing.domain.simulation.command.Command;
 import com.oracle.construction.aconex.planing.domain.simulation.map.CardinalDirection;
 import com.oracle.construction.aconex.planing.domain.simulation.map.Coordinate;

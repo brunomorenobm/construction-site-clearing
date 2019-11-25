@@ -1,7 +1,7 @@
 package com.oracle.construction.aconex.planing.domain.simulation.map.block;
 
 import com.oracle.construction.aconex.planing.exception.rules.InterruptSimulationException;
-import com.oracle.construction.aconex.planing.domain.Context;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
 import com.oracle.construction.aconex.planing.domain.simulation.map.Coordinate;
 import com.oracle.construction.aconex.planing.domain.simulation.map.block.rules.CleaningRule;
 

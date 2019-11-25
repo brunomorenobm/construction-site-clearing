@@ -5,7 +5,7 @@ import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMap;
 import com.oracle.construction.aconex.planing.domain.simulation.map.SiteMapConstruction;
 import com.oracle.construction.aconex.planing.domain.simulation.map.block.Block;
 import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidation;
-import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidationBlockedCleaneableTrees;
+import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidationBlockedCleanableTrees;
 import com.oracle.construction.aconex.planing.domain.simulation.map.validation.MapValidationUnbalanced;
 import com.oracle.construction.aconex.planing.service.repository.Repository;
 import com.oracle.construction.aconex.planing.service.repository.RepositoryBlock;
@@ -41,7 +41,7 @@ public class Main {
 
 
         List<MapValidation> mapValidation = new LinkedList<>();
-        mapValidation.add(new MapValidationBlockedCleaneableTrees());
+        mapValidation.add(new MapValidationBlockedCleanableTrees());
         mapValidation.add(new MapValidationUnbalanced());
 
         SiteMap siteMap = new SiteMapConstruction(blockRepository, commandActions, beforeEndSimulation, mapValidation) ;

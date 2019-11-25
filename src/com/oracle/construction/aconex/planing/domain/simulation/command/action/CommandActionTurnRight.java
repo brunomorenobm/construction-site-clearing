@@ -1,6 +1,6 @@
 package com.oracle.construction.aconex.planing.domain.simulation.command.action;
 
-import com.oracle.construction.aconex.planing.domain.Context;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
 import com.oracle.construction.aconex.planing.domain.simulation.map.CardinalDirection;
 import com.oracle.construction.aconex.planing.domain.simulation.command.Command;
 

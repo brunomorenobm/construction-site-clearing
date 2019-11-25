@@ -4,8 +4,8 @@ import com.oracle.construction.aconex.planing.exception.SimulationException;
 import com.oracle.construction.aconex.planing.exception.map.MapSimulationException;
 import com.oracle.construction.aconex.planing.exception.repository.SimulationRepositoyException;
 import com.oracle.construction.aconex.planing.exception.rules.InterruptSimulationException;
-import com.oracle.construction.aconex.planing.domain.Context;
-import com.oracle.construction.aconex.planing.domain.SimulationContext;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
+import com.oracle.construction.aconex.planing.domain.simulation.SimulationContext;
 import com.oracle.construction.aconex.planing.domain.billing.Bill;
 import com.oracle.construction.aconex.planing.domain.simulation.command.Command;
 import com.oracle.construction.aconex.planing.domain.simulation.command.action.Action;
@@ -58,21 +58,19 @@ public class SiteMapConstruction implements SiteMap {
 
 
     @Override
-    //TODO: Review Program Flow Try Catch
     public void navigate(Command command) throws SimulationException {
 
         try {
             if ((command != null) && (command.isValid())) {
 
-
+                // Executes the action associated ate the Simulation Creation
                 if (executeEveryCommandActions != null) {
-                    // TODO: Move Actions Command to Super Class
                     for (CommandAction action : executeEveryCommandActions) {
                         action.execute(command, this.context);
                     }
                 }
 
-                // Execute every returned action from Enum
+                // Execute all actions associated with the Enum
                 for (CommandAction commandAction : command.getCommandAction().getAction()) {
                     commandAction.execute(command, this.context);
                 }

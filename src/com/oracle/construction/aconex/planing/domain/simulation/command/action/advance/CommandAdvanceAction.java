@@ -3,7 +3,7 @@ package com.oracle.construction.aconex.planing.domain.simulation.command.action.
 import com.oracle.construction.aconex.planing.exception.SimulationException;
 import com.oracle.construction.aconex.planing.exception.rules.InterruptSimulationException;
 import com.oracle.construction.aconex.planing.exception.rules.OutOfBoundariesException;
-import com.oracle.construction.aconex.planing.domain.Context;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
 import com.oracle.construction.aconex.planing.domain.simulation.map.Coordinate;
 import com.oracle.construction.aconex.planing.domain.simulation.map.block.Block;
 

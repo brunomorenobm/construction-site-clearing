@@ -7,7 +7,7 @@ import com.oracle.construction.aconex.planing.exception.map.UnreachableCleanable
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MapValidationBlockedCleaneableTrees implements MapValidation {
+public class MapValidationBlockedCleanableTrees implements MapValidation {
     @Override
     public boolean validate(List<List<Block>> blocks) throws UnreachableCleanableBlocksMapSimulationException {
 
@@ -19,14 +19,14 @@ public class MapValidationBlockedCleaneableTrees implements MapValidation {
                 ).collect((Collectors.toList()));
 
 
-        if (hasAnyUnreachableeCleanableBlocks(protectedBlocks, blocks)) {
+        if (hasAnyUnreachableCleanableBlocks(protectedBlocks, blocks)) {
             throw new UnreachableCleanableBlocksMapSimulationException();
         }
         return true;
     }
 
     //TODO: Implement validation?
-    private boolean hasAnyUnreachableeCleanableBlocks(List<Block> protectedBlocks, List<List<Block>> blocks) {
+    private boolean hasAnyUnreachableCleanableBlocks(List<Block> protectedBlocks, List<List<Block>> blocks) {
         return false;
     }
 }

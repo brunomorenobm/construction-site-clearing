@@ -3,7 +3,7 @@ package com.oracle.construction.aconex.planing.domain.simulation.command.action;
 import com.oracle.construction.aconex.planing.exception.command.InvalidCommandException;
 import com.oracle.construction.aconex.planing.exception.SimulationException;
 import com.oracle.construction.aconex.planing.exception.rules.InterruptSimulationException;
-import com.oracle.construction.aconex.planing.domain.Context;
+import com.oracle.construction.aconex.planing.domain.simulation.Context;
 import com.oracle.construction.aconex.planing.domain.simulation.command.Command;
 import com.oracle.construction.aconex.planing.domain.simulation.map.CardinalDirection;
 
@@ -22,7 +22,7 @@ public class CommandActionAdvance implements CommandAction {
         context.getCurrentPosition();
         CardinalDirection facingDirection = context.getCardinalDirection();
 
-        // TODO: Move thi validation to command parse
+        // TODO: Move thi validation to command parse ?
         int blocksToMove;
         try {
             blocksToMove = Integer.valueOf(command.getAttribute());

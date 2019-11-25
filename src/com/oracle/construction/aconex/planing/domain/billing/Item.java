@@ -1,5 +1,8 @@
 package com.oracle.construction.aconex.planing.domain.billing;
 
+import com.oracle.construction.aconex.planing.domain.billing.calculator.BillItemCalculator;
+import com.oracle.construction.aconex.planing.domain.billing.calculator.BillItemCalculatorMultiply;
+
 public enum Item {
     FUEL(1, "fuel usage", new BillItemCalculatorMultiply()), COMMUNICATION(1, "communication overhead", new BillItemCalculatorMultiply()), UNCLEAR_BLOCK(3, "uncleared squares", new BillItemCalculatorMultiply()),
     PENALTY_PROTECTED_TREE(10, "destruction of protected tree", new BillItemCalculatorMultiply()), PENALTY_PAINT(2, "paint damage to bulldozer", new BillItemCalculatorMultiply());

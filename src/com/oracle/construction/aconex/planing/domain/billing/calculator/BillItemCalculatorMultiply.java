@@ -1,4 +1,6 @@
-package com.oracle.construction.aconex.planing.domain.billing;
+package com.oracle.construction.aconex.planing.domain.billing.calculator;
+
+import com.oracle.construction.aconex.planing.domain.billing.BillItem;
 
 public class BillItemCalculatorMultiply implements BillItemCalculator {
 
