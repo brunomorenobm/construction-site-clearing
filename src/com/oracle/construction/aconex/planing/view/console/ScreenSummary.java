@@ -1,6 +1,6 @@
 package com.oracle.construction.aconex.planing.view.console;
 
-import com.oracle.construction.aconex.planing.model.map.SiteMap;
+import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
 import com.oracle.construction.aconex.planing.view.console.sitemap.SiteMapConsolePrinterBill;
 import com.oracle.construction.aconex.planing.view.console.sitemap.SiteMapConsolePrinterCommands;
 
@@ -13,17 +13,17 @@ public class ScreenSummary implements Screen {
     }
 
     @Override
-    public void init() {
-        screen.println("The simulation has ended at your request. These are the commands\n" +
+    public void show() {
+        output.println("The simulation has ended at your request. These are the commands\n" +
                 "you issued:");
 
-        new SiteMapConsolePrinterCommands().print(this.siteMap, screen);
+        new SiteMapConsolePrinterCommands().print(this.siteMap, output);
 
-        screen.println("The costs for this land clearing operation were:");
+        output.println("The costs for this land clearing operation were:");
 
-        new SiteMapConsolePrinterBill().print(this.siteMap, screen);
+        new SiteMapConsolePrinterBill().print(this.siteMap, output);
 
-        screen.println("\nThank you for using the Aconex site clearing simulator.");
+        output.println("\nThank you for using the Aconex site clearing simulator.");
 
     }
 }

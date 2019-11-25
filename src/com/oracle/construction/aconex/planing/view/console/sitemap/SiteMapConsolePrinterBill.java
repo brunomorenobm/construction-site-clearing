@@ -2,7 +2,7 @@ package com.oracle.construction.aconex.planing.view.console.sitemap;
 
 import com.oracle.construction.aconex.planing.model.billing.BillItem;
 import com.oracle.construction.aconex.planing.model.billing.Item;
-import com.oracle.construction.aconex.planing.model.map.SiteMap;
+import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
 
 import java.io.PrintStream;
 import java.util.List;
@@ -17,14 +17,14 @@ public class SiteMapConsolePrinterBill implements SiteMapConsolePrinter {
 
         // Commands
         for (Item enumItem: Item.values()){
-            Integer quantity = 0;
+            Long quantity = 0l;
             Double creditUsage = 0d;
 
             List<BillItem> billItems = siteMap.getBill().getBillItemGroupByType().get(enumItem);
 
             if (billItems != null){
-                quantity =  billItems.stream().mapToInt(item -> item.getQuantity()).sum();
-                creditUsage =  billItems.stream().mapToDouble(item -> item.getItem().getCredit()).sum();
+                quantity =  billItems.stream().mapToLong(item -> item.getQuantity()).sum();
+                creditUsage =  billItems.stream().mapToDouble(item -> item.getItem().getCalculator().calculate(item)).sum();
             }
 
             out.printf("%1$-45s %2$8d %3$8.0f \n", enumItem.getDescription(), quantity, creditUsage);
@@ -32,7 +32,7 @@ public class SiteMapConsolePrinterBill implements SiteMapConsolePrinter {
 
         // Footer - Total
         out.println("----");
-        out.printf("%1$-61s %2$-8.0f \n", "Total", siteMap.getBill().getTotal());
+        out.printf("%1$-59s %2$-8.0f \n", "Total", siteMap.getBill().getTotal());
 
     }
 }

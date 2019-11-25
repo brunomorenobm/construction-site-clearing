@@ -28,7 +28,7 @@ public class BillSiteMap implements Bill {
 
     @Override
     public Double getTotal() {
-        return this.billItems.stream().mapToDouble(item -> item.getItem().calculator.calculate(item)).sum();
+        return this.billItems.stream().mapToDouble(item -> item.getItem().getCalculator().calculate(item)).sum();
     }
 
     @Override

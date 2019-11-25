@@ -1,9 +1,14 @@
 package com.oracle.construction.aconex.planing;
 
-import com.oracle.construction.aconex.planing.model.map.action.Action;
-import com.oracle.construction.aconex.planing.model.map.SiteMap;
-import com.oracle.construction.aconex.planing.model.map.action.ActionSaveCommand;
-import com.oracle.construction.aconex.planing.model.map.SiteMapConstruction;
+import com.oracle.construction.aconex.planing.model.simulation.command.action.*;
+import com.oracle.construction.aconex.planing.model.simulation.map.SiteMap;
+import com.oracle.construction.aconex.planing.model.simulation.map.SiteMapConstruction;
+import com.oracle.construction.aconex.planing.model.simulation.map.block.Block;
+import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidation;
+import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidationBlockedCleaneableTrees;
+import com.oracle.construction.aconex.planing.model.simulation.map.validation.MapValidationUnbalanced;
+import com.oracle.construction.aconex.planing.service.repository.Repository;
+import com.oracle.construction.aconex.planing.service.repository.RepositoryBlock;
 import com.oracle.construction.aconex.planing.view.console.Screen;
 import com.oracle.construction.aconex.planing.view.console.ScreenCommand;
 import com.oracle.construction.aconex.planing.view.console.ScreenSummary;
@@ -24,10 +29,22 @@ public class Main {
         } else {
             throw new MissingFormatArgumentException("Please inform the site-map path file");
         }
-        List<Action> actions = new LinkedList<>();
-        actions.add(new ActionSaveCommand());
 
-        SiteMap siteMap = new SiteMapConstruction(fileSourcePath, actions) ;
+        Repository<Block> blockRepository = new RepositoryBlock(fileSourcePath);
+
+        List<CommandAction> commandActions = new LinkedList<>();
+        commandActions.add(new CommandActionSaveCommand());
+
+
+        List<Action> beforeEndSimulation = new LinkedList<>();
+        beforeEndSimulation.add(new ActionUnclearBlocks());
+
+
+        List<MapValidation> mapValidation = new LinkedList<>();
+        mapValidation.add(new MapValidationBlockedCleaneableTrees());
+        mapValidation.add(new MapValidationUnbalanced());
+
+        SiteMap siteMap = new SiteMapConstruction(blockRepository, commandActions, beforeEndSimulation, mapValidation) ;
 
         List<Screen> screens = new ArrayList<>(3);
         screens.add(new ScreenWelcome(siteMap));
@@ -35,7 +52,7 @@ public class Main {
         screens.add(new ScreenSummary(siteMap));
 
         for (Screen screen : screens){
-            screen.init();
+            screen.show();
         }
     }
 }

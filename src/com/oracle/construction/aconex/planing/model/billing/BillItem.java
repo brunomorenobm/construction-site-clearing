@@ -4,9 +4,9 @@ public class BillItem {
 
     private Item item;
 
-    private Integer quantity;
+    private Long quantity;
 
-    public BillItem(Item item, int quantity) {
+    public BillItem(Item item, Long quantity) {
         this.item = item;
         this.quantity = quantity;
     }
@@ -15,7 +15,7 @@ public class BillItem {
         return item;
     }
 
-    public Integer getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 }
