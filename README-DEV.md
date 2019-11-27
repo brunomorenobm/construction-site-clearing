@@ -1,4 +1,4 @@
-### Read it if you are a Dev and needs to change or extend the code.
+# Read it if you are a DEV and if you need to change or extend the anything.
 
 The only constant we have in this tech world is: **everything changes**, so if you need to chage anything please follow the topics
 
