@@ -1,4 +1,4 @@
-package com.oracle.construction.aconex.simulation.domain.billing;
+package com.oracle.construction.aconex.simulation.domain.simulation.billing;
 
 import com.oracle.construction.aconex.simulation.exception.SimulationException;
 import org.junit.jupiter.api.BeforeEach;

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CommandNavigateTest {
+class NavigateCommandTest {
 
     @BeforeEach
     void setUp() {
@@ -14,7 +14,7 @@ class CommandNavigateTest {
 
     @Test
     void commandQuit() throws InvalidCommandException {
-        Command command = new CommandNavigate("q");
+        Command command = new NavigateCommand("q");
         Assertions.assertTrue(command.isValid());
         Assertions.assertEquals(CommandActionType.q, command.getCommandAction());
         Assertions.assertEquals("(q)uit", command.getCommandAction().getCommandDisplay());
@@ -23,7 +23,7 @@ class CommandNavigateTest {
 
     @Test
     void commandLeft() throws InvalidCommandException {
-        Command command = new CommandNavigate("l");
+        Command command = new NavigateCommand("l");
         Assertions.assertTrue(command.isValid());
         Assertions.assertEquals(CommandActionType.l, command.getCommandAction());
         Assertions.assertEquals("(l)eft", command.getCommandAction().getCommandDisplay());
@@ -32,7 +32,7 @@ class CommandNavigateTest {
 
     @Test
     void commandRight() throws InvalidCommandException {
-        Command command = new CommandNavigate("r");
+        Command command = new NavigateCommand("r");
         Assertions.assertTrue(command.isValid());
         Assertions.assertEquals(CommandActionType.r, command.getCommandAction());
         Assertions.assertEquals("(r)ight", command.getCommandAction().getCommandDisplay());
@@ -41,7 +41,7 @@ class CommandNavigateTest {
 
     @Test
     void commandAdvance() throws InvalidCommandException {
-        Command command = new CommandNavigate("a 10");
+        Command command = new NavigateCommand("a 10");
         Assertions.assertTrue(command.isValid());
         Assertions.assertEquals(CommandActionType.a, command.getCommandAction());
         Assertions.assertEquals("(a)dvance <n>", command.getCommandAction().getCommandDisplay());
@@ -50,20 +50,20 @@ class CommandNavigateTest {
 
     @Test
     void invalidCommandAdvance() throws InvalidCommandException {
-        Command command = new CommandNavigate("a10");
+        Command command = new NavigateCommand("a10");
         Assertions.assertTrue(!command.isValid());
     }
 
     @Test
     void invalidCommandAdvanceWrongNumber() throws InvalidCommandException {
-        Command command = new CommandNavigate("a we");
+        Command command = new NavigateCommand("a we");
         Assertions.assertTrue(!command.isValid());
     }
 
 
     @Test
     void invalidCommand() throws InvalidCommandException {
-        Command command = new CommandNavigate("rfsdf we");
+        Command command = new NavigateCommand("rfsdf we");
         Assertions.assertTrue(!command.isValid());
     }
 

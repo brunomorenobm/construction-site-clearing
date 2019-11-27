@@ -1,7 +1,7 @@
-package com.oracle.construction.aconex.simulation.domain.billing.calculator;
+package com.oracle.construction.aconex.simulation.domain.simulation.billing.calculator;
 
-import com.oracle.construction.aconex.simulation.domain.billing.BillItem;
-import com.oracle.construction.aconex.simulation.domain.billing.Item;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.BillItem;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.Item;
 import com.oracle.construction.aconex.simulation.exception.SimulationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

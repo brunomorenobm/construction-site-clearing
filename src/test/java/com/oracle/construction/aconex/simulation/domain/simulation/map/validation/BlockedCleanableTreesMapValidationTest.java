@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class MapValidationBlockedCleanableTreesTest {
+class BlockedCleanableTreesMapValidationTest {
 
     private BlockFactory blockFactory = new BlockFactory();
-    private MapValidation mapValidation = new MapValidationBlockedCleanableTrees();
+    private MapValidation mapValidation = new BlockedCleanableTreesMapValidation();
 
     @Test
     @Disabled
@@ -27,6 +27,33 @@ class MapValidationBlockedCleanableTreesTest {
         blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
         blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
         blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.t), blockFactory.createBlock(BlockType.t), blockFactory.createBlock(BlockType.t)).collect(Collectors.toList()));
+        Assertions.assertThrows(UnreachableCleanableBlocksMapSimulationException.class, () -> mapValidation.validate(blocks));
+
+    }
+
+
+    @Test
+    @Disabled
+    void validateBlockedCleanableTreed2Map() {
+        List<List<Block>> blocks = new ArrayList<>();
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.o)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.t), blockFactory.createBlock(BlockType.t), blockFactory.createBlock(BlockType.t)).collect(Collectors.toList()));
+        Assertions.assertThrows(UnreachableCleanableBlocksMapSimulationException.class, () -> mapValidation.validate(blocks));
+
+    }
+
+
+    @Test
+    @Disabled
+    void validateBlockedCleanableTreed3Map() {
+        List<List<Block>> blocks = new ArrayList<>();
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
+        blocks.add(Stream.of(blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T), blockFactory.createBlock(BlockType.o), blockFactory.createBlock(BlockType.T)).collect(Collectors.toList()));
         Assertions.assertThrows(UnreachableCleanableBlocksMapSimulationException.class, () -> mapValidation.validate(blocks));
 
     }

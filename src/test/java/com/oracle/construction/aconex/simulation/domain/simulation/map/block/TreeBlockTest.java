@@ -1,8 +1,8 @@
 package com.oracle.construction.aconex.simulation.domain.simulation.map.block;
 
-import com.oracle.construction.aconex.simulation.domain.billing.BillItem;
-import com.oracle.construction.aconex.simulation.domain.billing.Item;
-import com.oracle.construction.aconex.simulation.domain.billing.SimulationBill;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.BillItem;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.Item;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.SimulationBill;
 import com.oracle.construction.aconex.simulation.domain.simulation.Context;
 import com.oracle.construction.aconex.simulation.domain.simulation.map.CardinalDirection;
 import com.oracle.construction.aconex.simulation.domain.simulation.map.Coordinate;
@@ -17,7 +17,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-class BlockTreeTest {
+class TreeBlockTest {
 
     Block block;
 

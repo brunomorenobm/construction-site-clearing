@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class MapValidationUnbalancedTest {
+class UnbalancedMapValidationTest {
 
     private BlockFactory blockFactory = new BlockFactory();
-    private  MapValidation mapValidation = new MapValidationUnbalanced();
+    private  MapValidation mapValidation = new UnbalancedMapValidation();
 
 
     @Test

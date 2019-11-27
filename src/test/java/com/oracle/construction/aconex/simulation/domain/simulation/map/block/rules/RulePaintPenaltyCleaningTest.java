@@ -1,8 +1,8 @@
 package com.oracle.construction.aconex.simulation.domain.simulation.map.block.rules;
 
-import com.oracle.construction.aconex.simulation.domain.billing.BillItem;
-import com.oracle.construction.aconex.simulation.domain.billing.Item;
-import com.oracle.construction.aconex.simulation.domain.billing.SimulationBill;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.BillItem;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.Item;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.SimulationBill;
 import com.oracle.construction.aconex.simulation.domain.simulation.Context;
 import com.oracle.construction.aconex.simulation.exception.SimulationException;
 import com.oracle.construction.aconex.simulation.exception.rules.InterruptSimulationException;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-class CleaningRuleOneFuelConsumptionTest {
+class RulePaintPenaltyCleaningTest {
     CleaningRule cleaningRule;
 
     @Mock
@@ -25,7 +25,7 @@ class CleaningRuleOneFuelConsumptionTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        cleaningRule = new CleaningRuleOneFuelConsumption();
+        cleaningRule = new RulePaintPenaltyCleaning();
 
     }
 
@@ -41,6 +41,6 @@ class CleaningRuleOneFuelConsumptionTest {
         // Data Verification
         List<BillItem> billingItems = context.getBill().getBillItems();
         Assertions.assertEquals(1, billingItems.size());
-        Assertions.assertEquals(new BillItem(Item.FUEL, 1l), billingItems.get(0));
+        Assertions.assertEquals(new BillItem(Item.PENALTY_PAINT, 1l), billingItems.get(0));
     }
 }

@@ -1,8 +1,8 @@
-package com.oracle.construction.aconex.simulation.domain.simulation.map.block.rules;
+package com.oracle.construction.aconex.simulation.domain.simulation.map.block;
 
-import com.oracle.construction.aconex.simulation.domain.billing.BillItem;
-import com.oracle.construction.aconex.simulation.domain.billing.Item;
-import com.oracle.construction.aconex.simulation.domain.billing.SimulationBill;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.BillItem;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.Item;
+import com.oracle.construction.aconex.simulation.domain.simulation.billing.SimulationBill;
 import com.oracle.construction.aconex.simulation.domain.simulation.Context;
 import com.oracle.construction.aconex.simulation.domain.simulation.map.CardinalDirection;
 import com.oracle.construction.aconex.simulation.domain.simulation.map.Coordinate;
@@ -18,9 +18,9 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 
-class CleaningRuleProtectedTreePenaltyTest {
+class ProtectedTreeBlockTest {
 
-    CleaningRule cleaningRule;
+    Block block;
 
     @Mock
     Context context;
@@ -28,22 +28,23 @@ class CleaningRuleProtectedTreePenaltyTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-        cleaningRule = new CleaningRuleProtectedTreePenalty();
-    }
-
-    @Test
-    void enteringFromEastWithProtectedTree() throws SimulationException {
 
         // Test data
         when(this.context.getBill()).thenReturn(new SimulationBill());
-        // From East - RULE 3
-        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.E);
+    }
+
+    @Test
+    void CleanPassThroughStartingFromEast() throws SimulationException {
         // Outside the Map, Initial
+        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.E);
         when(this.context.getCurrentPosition()).thenReturn(new Coordinate(0, 0));
         when(this.context.getInitialPosition()).thenReturn(new Coordinate(-1, 0));
 
-        // Method Execution
-        Assertions.assertDoesNotThrow(() -> cleaningRule.apply(this.context));
+        block = new BlockFactory().createBlock(BlockType.T);
+        block.setCoordinate(new Coordinate(0, 0));
+
+        // Set different ending coordinate to simulate pass through
+        Assertions.assertDoesNotThrow(() -> block.clean(this.context, new Coordinate(3, 1)));
 
         // Data Verification
         List<BillItem> billingItems = context.getBill().getBillItems();
@@ -53,18 +54,18 @@ class CleaningRuleProtectedTreePenaltyTest {
 
 
     @Test
-    void cleaningEastWithProtectedTree() throws SimulationException {
+    void CleanPassThrough() throws SimulationException {
 
-        // Test data
-        when(this.context.getBill()).thenReturn(new SimulationBill());
-        // Specific Cardinal Direction
-        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.E);
-        // Any Position
+        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.W);
         when(this.context.getCurrentPosition()).thenReturn(new Coordinate(1, 1));
         when(this.context.getInitialPosition()).thenReturn(new Coordinate(-1, 0));
 
-        // Method Execution
-        Assertions.assertThrows(ViolateRuleProtectedTreeException.class, () -> cleaningRule.apply(this.context));
+
+        block = new BlockFactory().createBlock(BlockType.T);
+        block.setCoordinate(new Coordinate(1, 1));
+
+        // Set equal ending coordinate to simulate the stop
+        Assertions.assertThrows(ViolateRuleProtectedTreeException.class, () -> block.clean(this.context, new Coordinate(3, 1)));
 
         // Data Verification
         List<BillItem> billingItems = context.getBill().getBillItems();
@@ -74,18 +75,18 @@ class CleaningRuleProtectedTreePenaltyTest {
 
 
     @Test
-    void cleaningWithProtectedTree() throws SimulationException {
+    void CleanPassStop() throws SimulationException {
 
-        // Test data
-        when(this.context.getBill()).thenReturn(new SimulationBill());
-        // Any Cardinal Direction
-        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.N);
-        // Any position
-        when(this.context.getCurrentPosition()).thenReturn(new Coordinate(2, 2));
+        when(this.context.getCardinalDirection()).thenReturn(CardinalDirection.E);
+        when(this.context.getCurrentPosition()).thenReturn(new Coordinate(1, 1));
         when(this.context.getInitialPosition()).thenReturn(new Coordinate(-1, 0));
 
-        // Method Execution
-        Assertions.assertThrows(ViolateRuleProtectedTreeException.class, () -> cleaningRule.apply(this.context));
+
+        block = new BlockFactory().createBlock(BlockType.T);
+        block.setCoordinate(new Coordinate(1, 1));
+
+        // Set equal ending coordinate to simulate the stop
+        Assertions.assertThrows( ViolateRuleProtectedTreeException.class, () -> block.clean(this.context, new Coordinate(1, 1)));
 
         // Data Verification
         List<BillItem> billingItems = context.getBill().getBillItems();
