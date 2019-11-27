@@ -6,7 +6,7 @@ This is a test applied for Oracle ACONEX Company for Java Developer Candidates.
 
 More Details on: [construction-site-clearing.pdf](docs/construction-site-clearing.pdf) 
 
-If you are a DEV and needs to change or extend anything please read it: [developer-guide](README-DEV.md)
+If you are a DEV and needs to change or extend anything you **MUST READ ;)** : [developer-guide](README-DEV.md)
 
 ## How to Run
 
@@ -21,24 +21,33 @@ Please execute the command below to run the tests and generate the Java package 
 
 
 ###### run the Package:
-After the Java package is generated, and all tests have been executes, you are able to run the simulation, please execution the command below:
+After the Java package is generated, and all tests have been executed, you are able to run the simulation, please execute the command below:
 
 `java -jar target/construiction-site-clearing-1.0.jar src/main/resources/maps/map1.txt`
 
 where
 
-`java -jar target/construiction-site-clearing-1.0.jar <map-file-path>`
+`java -jar <jar-generated-package> <map-file-path>`
 
 ## Design and Approach
 
-The SOLID principles were used to design this solution, and some other patterns.
+The SOLID principles were used to design this solution with some other patterns.
 
 All Classes depends only Interfaces.
+
+
 All Business Classes have a single responsibility.
+
+
 All subclassed may be substitutable for their base/parent class.
+
+
 All Business components are close to change and open for extension.
+
+
 All classes implements only the methods they affective have to implement.
 
+###Approaches
 In order to be easier to change and to extend the simulation I have used the solutions below:
 
 #### - Rules
