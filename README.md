@@ -47,7 +47,7 @@ All Business components are close to change and open for extension.
 
 All classes implements only the methods they affective have to implement.
 
-###Approaches
+### Approaches
 In order to be easier to change and to extend the simulation I have used the solutions below:
 
 #### - Rules
