@@ -52,7 +52,7 @@ In order to be easier to change and to extend the simulation I have used the sol
 
 #### - Rules
 
-Each rule is aims to execute only one specific part of the business rule.
+Each rule aims to execute only one specific part of the business rule.
 
 #### - Block
 
@@ -62,7 +62,7 @@ To add more blocks just set the Business rules and add an enum Item.
  
 #### - Commands
 
-Each command has a set of actions, needs more action, just include more CommandAction objects, needs more commands, just create an enum item
+Each command has a set of actions, need more action? just include more CommandActions objects. Need more commands?, just create an enum item
 I have implemented Observer pattern to have the ability to add more behaviours without change the command. 
 
 

@@ -1,6 +1,6 @@
 # Read it if you are a DEV and if you need to change or extend the anything.
 
-The only constant we have in this tech world is: **everything changes**, so if you need to chage anything please follow the topics
+The only constant we have in this tech world is: **everything changes**, so if you need to chage anything please follow the topics:
 
 #### New Command
 Add a new enum item at:[CommandActionType](src/main/java/com/oracle/construction/aconex/simulation/domain/simulation/command/CommandActionType.java)
